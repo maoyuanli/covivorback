@@ -45,3 +45,20 @@ export const getProfile = async (req: Request, res: Response) => {
         })
     }
 };
+
+export const deleteProfile = async (req: Request, res: Response) => {
+    try {
+        // @ts-ignore
+        const userID = req.user._id;
+        await Profile.findOneAndRemove({user: userID});
+        res.status(200).json({
+            status: 'success',
+        })
+    } catch (e) {
+        res.status(400).json({
+            status: 'operation failed',
+            message: e
+        })
+    }
+
+}
