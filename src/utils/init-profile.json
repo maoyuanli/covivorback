@@ -1,10 +1,14 @@
 {
   "location": "1800 Sheppard Ave E, Toronto, ON",
-  "status":"recovered",
-  "hobby": ["movie", "swimming", "baseball"],
+  "status": "recovered",
+  "hobby": [
+    "movie",
+    "swimming",
+    "baseball"
+  ],
   "bio": "strong survivor, huge BlueJay fan",
   "social": {
-    "twitter":"@survivor1tweets",
+    "twitter": "@survivor1tweets",
     "instagram": "@survivor1gram"
   }
 }

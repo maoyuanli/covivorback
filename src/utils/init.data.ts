@@ -24,16 +24,16 @@ export const initUser = async () => {
 };
 
 const profile = JSON.parse(fs.readFileSync(`${__dirname}/init-profile.json`
-,'utf-8'));
+    , 'utf-8'));
 
 export const initProfile = async () => {
-    try{
+    try {
         // @ts-ignore
         await Profile.deleteMany();
         const user = await User.findOne({'username': 'user@abc.com'});
         // @ts-ignore
-        await Profile.create({...profile, user:user._id})
-    }catch (e) {
+        await Profile.create({...profile, user: user._id})
+    } catch (e) {
         console.log(`error innitializing profile: ${e}`);
     }
 };

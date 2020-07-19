@@ -1,9 +1,9 @@
 import mongoose, {Schema} from 'mongoose';
 
 export const profileSchema: Schema = new mongoose.Schema({
-    user:{
+    user: {
         type: mongoose.Schema.Types.ObjectId,
-        ref:'User'
+        ref: 'User'
     },
     location: {
         type: String
