@@ -84,3 +84,28 @@ export const likePost = async (req: Request, res: Response) => {
         })
     }
 };
+
+export const unlikePost = async (req: Request, res: Response) => {
+    try {
+        const post = await Post.findById(req.body.postId);
+        // @ts-ignore
+        if (post.likes
+            // @ts-ignore
+            .filter(like => like.user.toString() === req.user._id).length > 0) {
+            // @ts-ignore
+            post.likes = post.likes.filter(like => like.user.toString() !== req.user._id)
+        }
+        // @ts-ignore
+        await post.save();
+        res.status(200).json({
+            status: 'success',
+            // @ts-ignore
+            likes: post.likes
+        })
+    } catch (e) {
+        res.status(400).json({
+            status: 'operation failed',
+            message: e
+        })
+    }
+};
