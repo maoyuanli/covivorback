@@ -7,10 +7,11 @@ import {provideConfig} from '../config/keys';
 export const userRegister = async (req: Request, res: Response) => {
     try {
         const username: string = req.body.username;
+        const fullname: string = req.body.fullname;
         const salt = await bcrypt.genSalt(10);
         const password = await bcrypt.hash(req.body.password, salt);
         const userRegistered = await User.create({
-            username, password
+            username, password, fullname
         });
         res.status(200).json({
             status: 'user added',

@@ -13,10 +13,11 @@ export const initUser = async () => {
         await User.deleteMany();
         const user: string = 'user@abc.com';
         const pass: string = 'password';
+        const fullname: string = 'Cole Adams'
         const salt = await bcrypt.genSalt(10);
         const password = await bcrypt.hash(pass, salt);
         const userRegistered = await User.create({
-            username: user, password
+            username: user, password, fullname
         });
     } catch (e) {
         console.log(e);

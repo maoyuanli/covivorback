@@ -29,7 +29,7 @@ export const postSchema: Schema = new mongoose.Schema({
                 type: String,
                 required: true
             },
-            name: {
+            fullname: {
                 type: String
             },
             date: {
