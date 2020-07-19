@@ -1,6 +1,6 @@
 import {Router} from "express";
 import {auth} from "../utils/auth";
-import {createPost, deletePost, getPost, likePost, unlikePost} from "../controllers/post.controller";
+import {createComment, createPost, deletePost, getPost, likePost, unlikePost} from "../controllers/post.controller";
 
 
 export const postRouter = Router();
@@ -14,3 +14,5 @@ postRouter.route('/delete').delete(auth, deletePost)
 postRouter.route('/like').put(auth, likePost)
 
 postRouter.route('/unlike').put(auth, unlikePost)
+
+postRouter.route('/comment').put(auth, createComment)

@@ -109,3 +109,32 @@ export const unlikePost = async (req: Request, res: Response) => {
         })
     }
 };
+
+export const createComment = async (req: Request, res: Response) => {
+    try {
+        // @ts-ignore
+        const post = await Post.findById(req.body.postId);
+        // @ts-ignore
+        const commentingUser = req.user;
+        console.log(commentingUser._id)
+        const comment = {
+            user: commentingUser,
+            text: req.body.text,
+            fullname: commentingUser.fullname
+        }
+        // @ts-ignore
+        post.comments.push(comment);
+        // @ts-ignore
+        post.save()
+        res.status(200).json({
+            status: 'success',
+            // @ts-ignore
+            comments: post.comments
+        })
+    } catch (err) {
+        res.status(400).json({
+            status: 'operation failed',
+            message: err
+        })
+    }
+};
