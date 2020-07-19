@@ -1,0 +1,20 @@
+[
+  {
+    "ticker": "ABN AMRO BANK N.V. (ABN)",
+    "orderType": "Limited Buy",
+    "orderPrice": "15.05",
+    "orderVolumn": "3500"
+  },
+  {
+    "ticker": "ROYAL DUTCH SHELLA (RDSA)",
+    "orderType": "Market Sell",
+    "orderPrice": null,
+    "orderVolumn": "20000"
+  },
+  {
+    "ticker": "ABN AMRO BANK N.V. (ABN)",
+    "orderType": "Limited Buy",
+    "orderPrice": "15.10",
+    "orderVolumn": "7000"
+  }
+]
