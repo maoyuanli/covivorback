@@ -5,6 +5,7 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import {userRouter} from "./routers/user.routers";
 import {profileRouter} from "./routers/profile.routers";
+import {postRouter} from "./routers/post.router";
 
 
 export const app: Application = express();
@@ -17,6 +18,7 @@ if (process.env.NODE_ENV !== 'production') {
 app.options('*', cors());
 app.use('/api/user', userRouter);
 app.use('/api/profile', profileRouter);
+app.use('/api/post', postRouter);
 
 initUser().then(r => initProfile());
 

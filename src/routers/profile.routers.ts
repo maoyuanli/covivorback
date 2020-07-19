@@ -1,5 +1,5 @@
 import {Router} from "express";
-import {deleteProfile, getProfile, upsertProfile} from "../controllers/profile/profile.controller";
+import {deleteProfile, getProfile, upsertProfile} from "../controllers/profile.controller";
 import {auth} from "../utils/auth";
 
 export const profileRouter = Router();

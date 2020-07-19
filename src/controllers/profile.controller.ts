@@ -1,4 +1,4 @@
-import {Profile} from "../../models/profile.model";
+import {Profile} from "../models/profile.model";
 import {Request, Response} from "express";
 
 export const upsertProfile = async (req: Request, res: Response) => {
@@ -60,5 +60,4 @@ export const deleteProfile = async (req: Request, res: Response) => {
             message: e
         })
     }
-
 }
