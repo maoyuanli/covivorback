@@ -125,7 +125,7 @@ export const createComment = async (req: Request, res: Response) => {
             fullname: commentingUser.fullname
         }
         // @ts-ignore
-        post.comments.push(comment);
+        post.comments.unshift(comment);
         // @ts-ignore
         post.save()
         res.status(200).json({
@@ -137,6 +137,42 @@ export const createComment = async (req: Request, res: Response) => {
         res.status(400).json({
             status: 'operation failed',
             message: err
+        })
+    }
+};
+
+
+export const deleteComment = async (req: Request, res: Response) => {
+    try {
+        const post = await Post.findById(req.body.postId);
+        // @ts-ignore
+        const comment = post.comments.find(comment => comment._id.toString() === req.body.commentId);
+        if (!comment) {
+            return res.status(404).json({
+                status: 'failed',
+                message: 'comment not found'
+            })
+        }
+        // @ts-ignore
+        if (comment.user.toString() !== req.user._id) {
+            return res.status(401).json({
+                status: 'failed',
+                message: 'user not authorized'
+            })
+        }
+        // @ts-ignore
+        post.comments = post.comments.filter(comment => comment._id.toString() !== req.body.commentId)
+        // @ts-ignore
+        await post.save();
+        res.status(200).json({
+            status: 'success',
+            // @ts-ignore
+            comments: post.comments
+        })
+    } catch (e) {
+        res.status(400).json({
+            status: 'operation failed',
+            message: e
         })
     }
 };
