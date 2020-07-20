@@ -1,5 +1,6 @@
 import {Post} from "../models/post.model";
 import {Request, Response} from "express";
+import {User} from "../models/user.model";
 
 export const createPost = async (req: Request, res: Response) => {
     try {
@@ -12,7 +13,7 @@ export const createPost = async (req: Request, res: Response) => {
         });
         res.status(200).json({
             status: 'success',
-            order: post
+            post: post
         })
     } catch (err) {
         res.status(400).json({
@@ -115,11 +116,12 @@ export const createComment = async (req: Request, res: Response) => {
         // @ts-ignore
         const post = await Post.findById(req.body.postId);
         // @ts-ignore
-        const commentingUser = req.user;
-        console.log(commentingUser._id)
+        const commentingUser = await User.findById(req.user._id);
+        // @ts-ignore
         const comment = {
             user: commentingUser,
             text: req.body.text,
+            // @ts-ignore
             fullname: commentingUser.fullname
         }
         // @ts-ignore
