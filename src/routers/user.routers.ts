@@ -1,5 +1,6 @@
 import {Router} from "express";
-import {userLogin, userRegister} from "../controllers/user.controller";
+import {userAuth, userLogin, userRegister} from "../controllers/user.controller";
+import {auth} from "../utils/auth";
 
 export const userRouter = Router();
 
@@ -8,3 +9,6 @@ userRouter.route('/register')
 
 userRouter.route('/login')
     .post(userLogin);
+
+userRouter.route('/auth')
+    .get(auth, userAuth)

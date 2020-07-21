@@ -13,11 +13,11 @@ export const userRegister = async (req: Request, res: Response) => {
         const userRegistered = await User.create({
             username, password, fullname
         });
+        // @ts-ignore
+        const token = jwt.sign({_id: userRegistered._id}, provideConfig().jwtPrivateToken);
         res.status(200).json({
             status: 'user added',
-            data: {
-                user: userRegistered.get("username")
-            }
+            token: 'Bearer ' + token
         })
     } catch (err) {
         res.status(400).json({
@@ -54,3 +54,26 @@ export const userLogin = async (req: Request, res: Response) => {
         })
     }
 };
+
+export const userAuth = async (req: Request, res: Response) => {
+    try {
+        // @ts-ignore
+        const userID = req.user._id;
+        const user = await User.findById(userID).select('-password')
+        if (user) {
+            res.json(user);
+        } else {
+            res.status(400).json({
+                status: 'failure',
+                message: 'user not authenticated'
+            })
+        }
+
+    } catch (err) {
+        res.status(500).json({
+            status: 'user authentication failed',
+            message: err
+        })
+    }
+
+}
