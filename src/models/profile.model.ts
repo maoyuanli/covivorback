@@ -6,35 +6,30 @@ export const profileSchema: Schema = new mongoose.Schema({
         ref: 'User'
     },
     location: {
-        type: String
+        type: String,
+        required: true
     },
-    status: {
+    bio: {
         type: String,
         required: true
     },
     hobby: {
-        type: [String],
-        required: true
+        type: String,
     },
-    bio: {
+    youtube: {
         type: String
     },
-    social: {
-        youtube: {
-            type: String
-        },
-        twitter: {
-            type: String
-        },
-        facebook: {
-            type: String
-        },
-        linkedin: {
-            type: String
-        },
-        instagram: {
-            type: String
-        }
+    twitter: {
+        type: String
+    },
+    facebook: {
+        type: String
+    },
+    linkedin: {
+        type: String
+    },
+    instagram: {
+        type: String
     },
     date: {
         type: Date,

@@ -5,10 +5,13 @@ export const upsertProfile = async (req: Request, res: Response) => {
     try {
         const update = {
             location: req.body.profile.location,
-            status: req.body.profile.status,
             hobby: req.body.profile.hobby,
             bio: req.body.profile.bio,
-            social: req.body.profile.social,
+            twitter: req.body.profile.twitter,
+            facebook: req.body.profile.facebook,
+            instagram: req.body.profile.instagram,
+            linkedin: req.body.profile.linkedin,
+            youtube: req.body.profile.youtube,
         };
         // @ts-ignore
         const filter = {user: req.user._id}
