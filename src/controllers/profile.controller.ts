@@ -5,7 +5,6 @@ export const upsertProfile = async (req: Request, res: Response) => {
     try {
         const update = {
             location: req.body.profile.location,
-            hobby: req.body.profile.hobby,
             bio: req.body.profile.bio,
             twitter: req.body.profile.twitter,
             facebook: req.body.profile.facebook,

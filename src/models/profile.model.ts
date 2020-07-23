@@ -13,9 +13,6 @@ export const profileSchema: Schema = new mongoose.Schema({
         type: String,
         required: true
     },
-    hobby: {
-        type: String,
-    },
     youtube: {
         type: String
     },
