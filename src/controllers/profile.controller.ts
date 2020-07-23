@@ -49,6 +49,21 @@ export const getProfile = async (req: Request, res: Response) => {
     }
 };
 
+export const getAllProfiles = async (req: Request, res: Response) => {
+    try {
+        const profiles = await Profile.find();
+        res.status(200).json({
+            status: 'success',
+            profile: profiles
+        })
+    } catch (e) {
+        res.status(400).json({
+            status: 'profiles not found',
+            message: e
+        })
+    }
+};
+
 export const deleteProfile = async (req: Request, res: Response) => {
     try {
         // @ts-ignore
