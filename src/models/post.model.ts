@@ -5,10 +5,6 @@ export const postSchema: Schema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
-    title: {
-        type: String,
-        required: true
-    },
     text: {
         type: String,
         required: true
