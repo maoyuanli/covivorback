@@ -51,10 +51,10 @@ export const getProfile = async (req: Request, res: Response) => {
 
 export const getAllProfiles = async (req: Request, res: Response) => {
     try {
-        const profiles = await Profile.find();
+        const profiles = await Profile.find().populate("user","-password");
         res.status(200).json({
-            status: 'success',
-            profile: profiles
+            status: 'get all profiles success',
+            profiles: profiles
         })
     } catch (e) {
         res.status(400).json({
