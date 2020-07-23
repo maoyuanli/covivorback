@@ -5,6 +5,7 @@ import {
     createPost,
     deleteComment,
     deletePost,
+    getAllPosts,
     getPost,
     likePost,
     unlikePost
@@ -16,6 +17,8 @@ export const postRouter = Router();
 postRouter.route('/create').post(auth, createPost)
 
 postRouter.route('/get').get(auth, getPost)
+
+postRouter.route('/getall').get(getAllPosts)
 
 postRouter.route('/delete').delete(auth, deletePost)
 

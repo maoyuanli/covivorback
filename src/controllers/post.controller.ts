@@ -40,6 +40,20 @@ export const getPost = async (req: Request, res: Response) => {
     }
 };
 
+export const getAllPosts = async (req: Request, res: Response) => {
+    try {
+        const posts = await Post.find();
+        res.status(200).json({
+            posts: posts
+        });
+    } catch (err) {
+        res.status(400).json({
+            status: 'not found',
+            message: err
+        })
+    }
+};
+
 export const deletePost = async (req: Request, res: Response) => {
     try {
         // @ts-ignore
