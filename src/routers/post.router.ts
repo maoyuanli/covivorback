@@ -28,4 +28,4 @@ postRouter.route('/unlike').put(auth, unlikePost)
 
 postRouter.route('/comment').put(auth, createComment)
 
-postRouter.route('/uncomment').delete(auth, deleteComment)
+postRouter.route('/uncomment').put(auth, deleteComment)
