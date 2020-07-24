@@ -11,9 +11,10 @@ export const createPost = async (req: Request, res: Response) => {
             // @ts-ignore
             user: req.user._id
         });
+        const posts = await Post.find().populate("user", "-password");
         res.status(200).json({
             status: 'success',
-            post: post
+            posts: posts
         })
     } catch (err) {
         res.status(400).json({
@@ -56,11 +57,11 @@ export const getAllPosts = async (req: Request, res: Response) => {
 
 export const deletePost = async (req: Request, res: Response) => {
     try {
-        // @ts-ignore
-        const postId = req.body.postId;
-        await Post.findByIdAndDelete(postId);
+        await Post.findByIdAndDelete(req.params.id);
+        const posts = await Post.find().populate("user", "-password");
         res.status(200).json({
             status: 'success',
+            posts: posts
         })
     } catch (e) {
         res.status(400).json({

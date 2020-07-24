@@ -20,7 +20,7 @@ postRouter.route('/get').get(auth, getPost)
 
 postRouter.route('/getall').get(getAllPosts)
 
-postRouter.route('/delete').delete(auth, deletePost)
+postRouter.route('/delete/:id').delete(auth, deletePost)
 
 postRouter.route('/like').put(auth, likePost)
 
