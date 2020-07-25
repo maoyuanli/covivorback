@@ -6,6 +6,7 @@ export const upsertProfile = async (req: Request, res: Response) => {
         const update = {
             location: req.body.profile.location,
             bio: req.body.profile.bio,
+            photoUrl: req.body.profile.photoUrl,
             twitter: req.body.profile.twitter,
             facebook: req.body.profile.facebook,
             instagram: req.body.profile.instagram,
