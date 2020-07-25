@@ -11,7 +11,7 @@ export const createPost = async (req: Request, res: Response) => {
             // @ts-ignore
             user: req.user._id
         });
-        const posts = await Post.find().populate("user", "-password");
+        const posts = await Post.find().populate("user", "-password").sort({date: 'desc'});
         res.status(200).json({
             status: 'success',
             posts: posts
