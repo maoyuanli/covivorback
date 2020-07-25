@@ -1,6 +1,6 @@
 import express, {Application} from 'express';
 import morgan from 'morgan';
-import {initUserWithProfile} from './utils/init.data';
+import {initPosts, initUserWithProfile} from './utils/init.data';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import {userRouter} from "./routers/user.routers";
@@ -21,6 +21,8 @@ app.use('/api/profile', profileRouter);
 app.use('/api/post', postRouter);
 
 initUserWithProfile().then(r => {
+    initPosts()
+}).then(r => {
 });
 
 

@@ -21,6 +21,7 @@ export const initUserWithProfile = async () => {
     // @ts-ignore
     await Post.deleteMany();
 
+    const randIntUsed: Array<number> = [];
     for (let i = 0; i < profiles.length; i++) {
         try {
             const {username, password, fullname} = users[i];
@@ -31,7 +32,12 @@ export const initUserWithProfile = async () => {
                 username, password: pass, fullname
             });
 
-            const randInt = Math.floor(Math.random() * 100);
+
+            let randInt = Math.floor(Math.random() * 100);
+            while (randIntUsed.includes(randInt)) {
+                randInt = Math.floor(Math.random() * 100);
+            }
+            randIntUsed.push(randInt);
             const randGender = randInt > 50 ? 'women' : 'men'
             const photoUrl = `https://randomuser.me/api/portraits/${randGender}/${randInt}.jpg`;
 
@@ -42,3 +48,16 @@ export const initUserWithProfile = async () => {
     }
 };
 
+const posts = JSON.parse(fs.readFileSync(`${__dirname}/init-post.json`
+    , 'utf-8'));
+
+export const initPosts = async () => {
+    const users = await User.find();
+    for (let i = 0; i < posts.length; i++) {
+        posts[i].user = users[i]._id;
+        posts[i].comments[0].user = users[3]._id;
+        // @ts-ignore
+        posts[i].comments[0].fullname = users[3].fullname;
+        await Post.create(posts[i])
+    }
+};
