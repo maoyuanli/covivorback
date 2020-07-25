@@ -3,6 +3,7 @@ import {Request, Response} from "express";
 import bcrypt from "bcrypt";
 import jwt from 'jsonwebtoken';
 import {provideConfig} from '../config/keys';
+import {Profile} from "../models/profile.model";
 
 export const userRegister = async (req: Request, res: Response) => {
     try {
@@ -13,6 +14,16 @@ export const userRegister = async (req: Request, res: Response) => {
         const userRegistered = await User.create({
             username, password, fullname
         });
+        const filter = {user: userRegistered._id}
+        const options = {new: true, upsert: true, runValidators: true};
+        const update = {
+            bio: 'not updated',
+            location: 'not updated',
+            photoUrl: 'https://img.icons8.com/material-sharp/96/000000/edit-user-male.png'
+        }
+        await Profile.findOneAndUpdate(
+            filter, update, options
+        );
         // @ts-ignore
         const token = jwt.sign({_id: userRegistered._id}, provideConfig().jwtPrivateToken);
         res.status(200).json({
