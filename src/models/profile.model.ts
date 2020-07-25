@@ -5,6 +5,9 @@ export const profileSchema: Schema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
+    photoUrl: {
+        type: String
+    },
     location: {
         type: String,
         required: true
