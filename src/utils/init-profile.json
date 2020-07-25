@@ -1,6 +1,33 @@
-{
-  "location": "1800 Sheppard Ave E, Toronto, ON",
-  "bio": "strong survivor, huge BlueJay fan",
-  "twitter": "@survivor1tweets",
-  "instagram": "@survivor1gram"
-}
+[
+  {
+    "location": "1800 Sheppard Ave E, Toronto, ON",
+    "bio": "Strong survivor, BlueJay fan",
+    "twitter": "@survivor1tweets",
+    "instagram": "@survivor1gram"
+  },
+  {
+    "location": "1000 Gerrard St E, Toronto, ON",
+    "bio": "It's not what we do, but what we've survived that defines us!",
+    "facebook": "fb.me/changingrs",
+    "instagram": "@longliveRS"
+  },
+  {
+    "location": "1000 Murray Ross Pkwy, North York, ON",
+    "bio": "The winners in life think constantly in terms of I can, I will, and I am...",
+    "linkedin": "lnk.in/profjeni",
+    "twitter": "@jdfprof78"
+  },
+  {
+    "location": "6 Brantwood Dr, Scarborough, ON",
+    "bio": "Extinction is the rule. Survival is the exception.",
+    "twitter": "@fmisliy4343",
+    "facebook": "fb.me/fmisliy",
+    "instagram": "@fmisliycool"
+  },
+  {
+    "location": "7070 St Barbara Blvd #45, Mississauga, ON",
+    "bio": "Nobody is stronger, nobody is weaker than someone who came back.",
+    "youtube": "y2u.be/touchanel",
+    "instagram": "@touchanel9"
+  }
+]

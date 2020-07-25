@@ -1,0 +1,27 @@
+[
+  {
+    "username": "user@abc.com",
+    "password": "password",
+    "fullname": "Charlie Smith"
+  },
+  {
+    "username": "user1@abc.com",
+    "password": "password",
+    "fullname": "Finley Spencer"
+  },
+  {
+    "username": "user2@abc.com",
+    "password": "password",
+    "fullname": "Oakley Armstrong"
+  },
+  {
+    "username": "user3@abc.com",
+    "password": "password",
+    "fullname": "Azariah Tenkavoki"
+  },
+  {
+    "username": "user4@abc.com",
+    "password": "password",
+    "fullname": "Robin Campbell"
+  }
+]
