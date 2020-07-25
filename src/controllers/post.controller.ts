@@ -6,7 +6,6 @@ export const createPost = async (req: Request, res: Response) => {
     try {
         // @ts-ignore
         const post = await Post.create({
-            title: req.body.post.title,
             text: req.body.post.text,
             // @ts-ignore
             user: req.user._id
