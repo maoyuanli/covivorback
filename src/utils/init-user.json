@@ -2,7 +2,7 @@
   {
     "username": "guest@account.com",
     "password": "abc123",
-    "fullname": "Charlie Smith"
+    "fullname": "Alex Smith"
   },
   {
     "username": "user1@abc.com",
@@ -23,5 +23,20 @@
     "username": "user4@abc.com",
     "password": "password",
     "fullname": "Robin Campbell"
+  },
+  {
+    "username": "user5@abc.com",
+    "password": "password",
+    "fullname": "Jordan Campbell"
+  },
+  {
+    "username": "user6@abc.com",
+    "password": "password",
+    "fullname": "Dakota Emerson"
+  },
+  {
+    "username": "user7@abc.com",
+    "password": "password",
+    "fullname": "Ray Kunimoto"
   }
 ]
