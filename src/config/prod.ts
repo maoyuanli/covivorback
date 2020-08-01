@@ -1,6 +1,7 @@
 import {Config} from "./keys";
 
 export const prodConfig: Config = {
+    redisUrl: process.env.REDIS_URL,
     TwitterConsumerKey: process.env.TWITTER_CONSUMER_KEY,
     TwitterConsumerSecret: process.env.TWITTER_CONSUMER_SECRET,
     TwitterAccessTokenKey: process.env.TWITTER_ACCESS_TOKEN_KEY,

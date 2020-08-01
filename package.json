@@ -24,6 +24,7 @@
     "mongoose": "^5.9.13",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.4",
+    "redis": "^3.0.2",
     "ts-node": "^8.10.2",
     "twitter-lite": "^0.14.0",
     "typescript": "^3.9.5"

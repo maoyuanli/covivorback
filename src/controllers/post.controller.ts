@@ -42,7 +42,7 @@ export const getPost = async (req: Request, res: Response) => {
 
 export const getAllPosts = async (req: Request, res: Response) => {
     try {
-        const posts = await Post.find().populate("user", "-password");
+        const posts = await Post.find().populate("user", "-password").sort({date: 'desc'});
         res.status(200).json({
             posts: posts
         });
