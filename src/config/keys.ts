@@ -10,7 +10,7 @@ export const provideConfig = (): Config => {
 };
 
 export interface Config {
-    redisUrl:any,
+    redisUrl: any,
     TwitterConsumerKey: any,
     TwitterConsumerSecret: any,
     TwitterAccessTokenKey: any,
