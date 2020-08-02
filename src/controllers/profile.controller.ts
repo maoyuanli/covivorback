@@ -51,7 +51,8 @@ export const getProfile = async (req: Request, res: Response) => {
 
 export const getAllProfiles = async (req: Request, res: Response) => {
     try {
-        const profiles = await Profile.find().populate("user", "-password");
+        // @ts-ignore
+        const profiles = await Profile.find().populate("user", "-password").cache();
         res.status(200).json({
             status: 'get all profiles success',
             profiles: profiles

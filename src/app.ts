@@ -7,6 +7,7 @@ import {userRouter} from "./routers/user.routers";
 import {profileRouter} from "./routers/profile.routers";
 import {postRouter} from "./routers/post.router";
 
+require('./utils/cache')
 
 export const app: Application = express();
 app.use(express.json());
