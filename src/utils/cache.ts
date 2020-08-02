@@ -34,7 +34,6 @@ if (redisConfigured) {
                 {collection: this.mongooseCollection.name})
         )
 
-
         // @ts-ignore
         redisClient.get = util.promisify(redisClient.get);
         const cachedValue = await redisClient.get(key);
